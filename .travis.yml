@@ -1,4 +1,7 @@
 language: ruby
 rvm:
   - "2.2.2"
+before_script:
+  - mv config/database_travis.yml config/database.yml
+  - mysql -e 'create database likejekyll'
 script: bundle exec rspec spec
