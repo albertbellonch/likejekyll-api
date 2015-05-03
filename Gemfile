@@ -4,6 +4,10 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.1'
 gem 'rails-api'
 
+# API
+gem 'active_model_serializers'
+gem 'responders'
+
 # Database
 gem 'mysql2'
 
@@ -21,5 +25,4 @@ group :test do
   gem 'fuubar'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
-  gem 'airborne'
 end

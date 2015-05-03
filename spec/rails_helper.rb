@@ -5,6 +5,8 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'shoulda/matchers'
 
+Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
+
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
@@ -14,6 +16,7 @@ RSpec.configure do |config|
 
   config.include FactoryGirl::Syntax::Methods
 
+  config.include Requests::JsonHelpers, type: :request
 end
 
 Shoulda::Matchers.configure do |config|
