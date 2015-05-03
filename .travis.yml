@@ -4,4 +4,5 @@ rvm:
 before_script:
   - mv config/database_travis.yml config/database.yml
   - mysql -e 'create database likejekyll'
+  - bundle exec rake db:migrate
 script: bundle exec rspec spec
