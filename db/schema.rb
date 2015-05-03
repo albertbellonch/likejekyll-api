@@ -9,8 +9,36 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(version: 20150503192235) do
 
+  create_table "identities", force: :cascade do |t|
+    t.string   "ip",         limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "identities", ["ip"], name: "index_identities_on_ip", using: :btree
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "page_id",     limit: 4
+    t.integer  "identity_id", limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "likes", ["identity_id"], name: "index_likes_on_identity_id", using: :btree
+  add_index "likes", ["page_id"], name: "index_likes_on_page_id", using: :btree
+
+  create_table "pages", force: :cascade do |t|
+    t.string   "uri",        limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "pages", ["uri"], name: "index_pages_on_uri", using: :btree
+
+  add_foreign_key "likes", "identities"
+  add_foreign_key "likes", "pages"
 end

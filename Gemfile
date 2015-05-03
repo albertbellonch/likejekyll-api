@@ -18,6 +18,8 @@ end
 # Test
 group :test do
   gem 'rspec-rails'
-  gem 'airborne'
   gem 'fuubar'
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
+  gem 'airborne'
 end

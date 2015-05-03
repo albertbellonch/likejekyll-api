@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/thoughtbot/shoulda-matchers.git
+  revision: ae77c7d736664876ddea726beee92c7888090783
+  specs:
+    shoulda-matchers (3.0.0.alpha)
+      activesupport (>= 4.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -49,6 +56,11 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     eventmachine (1.0.7)
+    factory_girl (4.5.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.5.0)
+      factory_girl (~> 4.5.0)
+      railties (>= 3.0.0)
     fuubar (2.0.0)
       rspec (~> 3.0)
       ruby-progressbar (~> 1.4)
@@ -150,10 +162,12 @@ PLATFORMS
 
 DEPENDENCIES
   airborne
+  factory_girl_rails
   fuubar
   mysql2
   rails (= 4.2.1)
   rails-api
   rspec-rails
+  shoulda-matchers!
   spring
   thin
