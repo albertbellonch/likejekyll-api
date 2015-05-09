@@ -11,8 +11,6 @@ class Identity < ActiveRecord::Base
     true
   end
 
-  private
-
   def liked_to_page?(page)
     likes.find_by_page_id(page.id).present?
   end
